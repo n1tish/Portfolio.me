@@ -27,6 +27,7 @@
                 <a href="#about">About</a>
                 <a href="#works">Work</a>
                 <a href="#case-studies">Case Studies</a>
+                <a href="#products">Products</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -287,11 +288,158 @@
             </div>
         </section>
 
+        <!-- Products Section -->
+        <section id="products" class="scroll-section bg-primary">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-index">04 &mdash; PRODUCTS</span>
+                    <h2 class="section-title">Features built and shipped at Thena.</h2>
+                </div>
+                <!-- Carousel -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-viewport" id="carouselViewport">
+                        <div class="carousel-track" id="carouselTrack">
+
+                            <!-- Insights -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">📊</span>
+                                </div>
+                                <h3 class="card-title">Insights</h3>
+                                <ul class="card-bullets">
+                                    <li>Track total, open, tracked, and discarded requests with period-over-period trend comparisons</li>
+                                    <li>Visualize request volume over time, broken down by account, assignee, or custom field</li>
+                                    <li>Monitor SLA adherence — first response and resolution breaches with configurable thresholds</li>
+                                    <li>Measure CSAT scores, p50/p90 time percentiles, and vendor response times across any date range</li>
+                                </ul>
+                            </div>
+
+                            <!-- Accounts -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">🏢</span>
+                                </div>
+                                <h3 class="card-title">Accounts</h3>
+                                <ul class="card-bullets">
+                                    <li>View and manage all customer accounts with searchable, sortable, and filterable table views</li>
+                                    <li>Enrich accounts with CRM data (Salesforce/HubSpot) and custom fields alongside Thena attributes</li>
+                                    <li>Create and save custom views with column visibility, filters, and account source segmentation</li>
+                                    <li>Bulk update account settings across multiple accounts and track associated contacts per account</li>
+                                </ul>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">📧</span>
+                                </div>
+                                <h3 class="card-title">Email</h3>
+                                <ul class="card-bullets">
+                                    <li>Connect a custom email address to route inbound emails directly into Thena's request workflow</li>
+                                    <li>Configure DNS settings with step-by-step guided setup to verify and secure your email domain</li>
+                                    <li>Set up auto-forwarding rules to map incoming emails to the right Slack channels or queues</li>
+                                    <li>View and manage email integration status — setup, verification, and forwarding state — in one place</li>
+                                </ul>
+                            </div>
+
+                            <!-- Notifications -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">🔔</span>
+                                </div>
+                                <h3 class="card-title">Notifications</h3>
+                                <ul class="card-bullets">
+                                    <li>Get a unified inbox of all request notifications you're subscribed to, with unread/read state tracking</li>
+                                    <li>Filter notifications by type, account, or request attributes to cut through noise</li>
+                                    <li>Click any notification to instantly open the corresponding request without context switching</li>
+                                    <li>Deep-link directly to a request from notifications via URL, with fallback lookup across all tables</li>
+                                </ul>
+                            </div>
+
+                            <!-- Billing -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">💳</span>
+                                </div>
+                                <h3 class="card-title">Billing</h3>
+                                <ul class="card-bullets">
+                                    <li>View and manage your current plan, seat count, and active feature add-ons</li>
+                                    <li>Access invoices and payment history in one place with transparent usage breakdowns</li>
+                                    <li>Upgrade or downgrade your plan directly without needing to contact support</li>
+                                    <li>Get proactive alerts when usage approaches plan limits or billing actions are required</li>
+                                </ul>
+                            </div>
+
+                            <!-- AI Flows: Customer Support Assistant -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">🤖</span>
+                                    <span class="card-tag">AI Flows</span>
+                                </div>
+                                <h3 class="card-title">Customer Support Assistant</h3>
+                                <ul class="card-bullets">
+                                    <li>Activate an AI assistant that generates accurate support responses grounded in your knowledge base</li>
+                                    <li>Add knowledge sources (URLs, docs, request history) and resync them on demand to keep AI up to date</li>
+                                    <li>Configure the assistant's answer length and historical data window to match your support style</li>
+                                    <li>Enable or disable the assistant per workspace with full permission-gated access control</li>
+                                </ul>
+                            </div>
+
+                            <!-- AI Flows: L1 Deflection -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">🤖</span>
+                                    <span class="card-tag">AI Flows</span>
+                                </div>
+                                <h3 class="card-title">L1 Deflection</h3>
+                                <ul class="card-bullets">
+                                    <li>Configure per-channel AI agents that auto-respond to internal helpdesk queries before reaching a human</li>
+                                    <li>Scope each assistant to one or more Slack channels with independent knowledge sources and answer configs</li>
+                                    <li>Track source sync status in a live table with indicators for processing, synced, and failed states</li>
+                                    <li>Duplicate existing sources across assistants to reuse knowledge across teams without redundant setup</li>
+                                </ul>
+                            </div>
+
+                            <!-- AI Flows: Sentiment Priority -->
+                            <div class="product-card">
+                                <div class="card-header">
+                                    <span class="card-icon" aria-hidden="true">🤖</span>
+                                    <span class="card-tag">AI Flows</span>
+                                </div>
+                                <h3 class="card-title">Sentiment Priority</h3>
+                                <ul class="card-bullets">
+                                    <li>Score and visualize inbound requests by sentiment (positive/neutral/negative) in the analytics view</li>
+                                    <li>Filter and slice request volume charts by sentiment to identify spikes in frustrated customer traffic</li>
+                                    <li>Use sentiment-based stacked bar charts to correlate emotional tone with request volume over time</li>
+                                    <li>Combine sentiment data with urgency filters to prioritize the most critical, negatively-toned requests</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="carouselPrev" aria-label="Previous slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <div class="carousel-dots" id="carouselDots"></div>
+                        <button class="carousel-btn" id="carouselNext" aria-label="Next slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
-        <section id="contact" class="scroll-section bg-primary">
+        <section id="contact" class="scroll-section bg-secondary">
             <div class="section-container contact-split">
                 <div class="section-header contact-header">
-                    <span class="section-index">04 &mdash; CONTACT</span>
+                    <span class="section-index">05 &mdash; CONTACT</span>
                     <h2 class="section-title">Let's build something exceptional.</h2>
                 </div>
                 <!-- Content -->

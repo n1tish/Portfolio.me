@@ -105,6 +105,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ----------------------------------------------------
+     * Products Carousel
+     * ---------------------------------------------------- */
+    const carouselViewport = document.getElementById('carouselViewport');
+    const carouselTrack = document.getElementById('carouselTrack');
+    const carouselPrevBtn = document.getElementById('carouselPrev');
+    const carouselNextBtn = document.getElementById('carouselNext');
+    const carouselDotsEl = document.getElementById('carouselDots');
+
+    if (carouselViewport && carouselTrack) {
+        const cards = Array.from(carouselTrack.children);
+        let currentIndex = 0;
+        let autoplayTimer = null;
+        const GAP = 24;
+
+        function getVisibleCount() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        function getMaxIndex() {
+            return Math.max(0, cards.length - getVisibleCount());
+        }
+
+        function applyCardWidths() {
+            const visibleCount = getVisibleCount();
+            const viewportWidth = carouselViewport.getBoundingClientRect().width;
+            const cardWidth = (viewportWidth - GAP * (visibleCount - 1)) / visibleCount;
+            cards.forEach(card => { card.style.width = `${cardWidth}px`; });
+            return cardWidth;
+        }
+
+        function buildDots() {
+            carouselDotsEl.innerHTML = '';
+            const max = getMaxIndex();
+            for (let i = 0; i <= max; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot';
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+                carouselDotsEl.appendChild(dot);
+            }
+        }
+
+        function updateUI(index) {
+            carouselDotsEl.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            if (carouselPrevBtn) carouselPrevBtn.disabled = index === 0;
+            if (carouselNextBtn) carouselNextBtn.disabled = index >= getMaxIndex();
+        }
+
+        function goTo(index) {
+            index = Math.max(0, Math.min(index, getMaxIndex()));
+            const cardWidth = applyCardWidths();
+            carouselTrack.style.transform = `translateX(-${index * (cardWidth + GAP)}px)`;
+            currentIndex = index;
+            updateUI(index);
+        }
+
+        function startAutoplay() {
+            autoplayTimer = setInterval(() => {
+                goTo(currentIndex >= getMaxIndex() ? 0 : currentIndex + 1);
+            }, 4000);
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayTimer);
+            startAutoplay();
+        }
+
+        if (carouselPrevBtn) {
+            carouselPrevBtn.addEventListener('click', () => { goTo(currentIndex - 1); resetAutoplay(); });
+        }
+        if (carouselNextBtn) {
+            carouselNextBtn.addEventListener('click', () => { goTo(currentIndex + 1); resetAutoplay(); });
+        }
+
+        carouselViewport.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+        carouselViewport.addEventListener('mouseleave', () => { clearInterval(autoplayTimer); startAutoplay(); });
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                buildDots();
+                goTo(Math.min(currentIndex, getMaxIndex()));
+            }, 150);
+        });
+
+        // Init
+        buildDots();
+        goTo(0);
+        startAutoplay();
+    }
+
+    /* ----------------------------------------------------
      * Intersection Observer: Scroll Into View Fade Ins
      * ---------------------------------------------------- */
     // Select all section containers indicating a new section begins
