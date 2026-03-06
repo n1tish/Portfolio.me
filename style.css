@@ -12,15 +12,15 @@
     --black: #000000;
 
     /* Typography Scale */
-    --font-hero: 64px;
-    --font-h1: 56px;
-    --font-h2: 40px;
-    --font-h3: 28px;
-    --font-body-large: 22px;
-    --font-body: 17px;
-    --font-small: 14px;
-    --font-caption: 12px;
-    --font-label: 11px;
+    --font-hero: 54px;
+    --font-h1: 48px;
+    --font-h2: 34px;
+    --font-h3: 24px;
+    --font-body-large: 19px;
+    --font-body: 14px;
+    --font-small: 12px;
+    --font-caption: 10px;
+    --font-label: 9px;
 
     /* System Font Stack */
     --font-display: 'Readex Pro', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
@@ -34,9 +34,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+/* scroll-behavior removed — Lenis handles smooth scrolling */
 
 body {
     font-family: var(--font-text);
@@ -81,7 +79,7 @@ a {
 .logo {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 0.02em;
 }
 
@@ -287,16 +285,7 @@ a {
 .section-container {
     max-width: 1080px;
     margin: 0 auto;
-
-    /* Intersection Observer defaults */
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 400ms ease, transform 400ms ease;
-}
-
-.section-container.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    /* opacity/transform managed by GSAP — no CSS initial state needed */
 }
 
 .section-header {
@@ -314,7 +303,7 @@ a {
 
 .section-title {
     font-family: var(--font-display);
-    font-size: 48px;
+    font-size: 41px;
     font-weight: 600;
     max-width: 560px;
     line-height: 1.15;
@@ -443,7 +432,7 @@ a {
 .carousel-track {
     display: flex;
     gap: 24px;
-    transition: transform 520ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    /* transition removed — GSAP handles carousel animation */
     will-change: transform;
 }
 
@@ -465,8 +454,14 @@ a {
 }
 
 .card-icon {
-    font-size: 36px;
-    line-height: 1;
+    display: block;
+    width: 28px;
+    height: 28px;
+    stroke: var(--text-secondary);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .card-tag {
@@ -482,7 +477,7 @@ a {
 }
 
 .card-title {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--text-primary);
     margin-bottom: 16px;
@@ -546,6 +541,17 @@ a {
 .carousel-btn:disabled {
     opacity: 0.3;
     cursor: not-allowed;
+}
+
+.carousel-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
 }
 
 .carousel-dots {
@@ -615,7 +621,7 @@ a {
     user-select: none;
     position: relative;
     font-family: 'Georgia', serif;
-    font-size: 1.45rem;
+    font-size: 1.23rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
@@ -626,9 +632,13 @@ a {
 }
 
 .key svg {
-    width: 32px;
-    height: 32px;
-    fill: currentColor;
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
     transition: all 0.15s ease;
 }
 
@@ -650,10 +660,6 @@ a {
         0 10px 24px rgba(0, 0, 0, 0.13);
 }
 
-.row-light .key svg {
-    fill: #b8b8b8;
-}
-
 /* Dark Row */
 .row-dark .key {
     background-color: #cecece;
@@ -661,10 +667,6 @@ a {
     box-shadow:
         0 7px 0 #a6a6a6,
         0 10px 26px rgba(0, 0, 0, 0.24);
-}
-
-.row-dark .key svg {
-    fill: #1a1a1a;
 }
 
 /* Interactions */
@@ -739,7 +741,7 @@ a {
     }
 
     .section-title {
-        font-size: 40px;
+        font-size: 34px;
     }
 
     .timeline-item {
@@ -806,12 +808,12 @@ a {
     }
 
     .hero-title {
-        font-size: 36px;
+        font-size: 31px;
         margin-bottom: 20px;
     }
 
     .tagline {
-        font-size: 15px;
+        font-size: 13px;
         margin-bottom: 32px;
     }
 
@@ -825,7 +827,7 @@ a {
     }
 
     .section-title {
-        font-size: 28px;
+        font-size: 24px;
         max-width: 100%;
     }
 
@@ -835,7 +837,7 @@ a {
 
     /* -- About -- */
     .about-text {
-        font-size: 18px;
+        font-size: 15px;
         margin-bottom: 40px;
     }
 
@@ -859,7 +861,7 @@ a {
     }
 
     .timeline-content h3 {
-        font-size: 22px;
+        font-size: 19px;
     }
 
     /* -- Products Carousel -- */
@@ -909,11 +911,11 @@ a {
    ========================================================================== */
 @media (max-width: 400px) {
     .hero-title {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     .section-title {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .key {
@@ -937,6 +939,420 @@ a {
 
     .btn {
         padding: 10px 20px;
-        font-size: 13px;
+        font-size: 11px;
+    }
+}
+
+/* ==========================================================================
+   Loader
+   ========================================================================== */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-logo {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* ==========================================================================
+   Custom Cursor
+   ========================================================================== */
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--text-primary);
+}
+
+.cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(29, 29, 31, 0.4);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+.cursor-ring.is-hovering {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(29, 29, 31, 0.2);
+}
+
+@media (hover: none) {
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+
+    body {
+        cursor: auto;
+    }
+}
+
+body.no-touch {
+    cursor: none;
+}
+
+/* ==========================================================================
+   Scroll Progress Bar
+   ========================================================================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    z-index: 200;
+    background: var(--text-primary);
+    transform-origin: left center;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Nav Active Indicator
+   ========================================================================== */
+.nav-links {
+    position: relative;
+}
+
+.nav-indicator {
+    position: absolute;
+    bottom: -1px;
+    height: 1.5px;
+    width: 0;
+    background: var(--text-primary);
+    pointer-events: none;
+    left: 0;
+}
+
+/* ==========================================================================
+   Hero Text Reveal
+   ========================================================================== */
+.line-outer {
+    display: block;
+    overflow: hidden;
+    line-height: 1.15;
+}
+
+.line-inner {
+    display: block;
+}
+
+/* Section title word-by-word reveals — words flow inline */
+.section-title .line-outer {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: inherit;
+    margin-bottom: 0.05em;
+}
+
+/* ==========================================================================
+   Skill Cards — Depth + Tilt
+   ========================================================================== */
+.skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow:
+        0 1px 0 1px rgba(255, 255, 255, 0.8) inset,
+        0 6px 0 0 #c8c8c8,
+        0 8px 20px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transform: perspective(600px) rotateX(0) rotateY(0);
+    transition: box-shadow 0.2s ease;
+    will-change: transform;
+}
+
+.skill-card:hover {
+    box-shadow:
+        0 1px 0 1px rgba(255, 255, 255, 0.8) inset,
+        0 8px 0 0 #c0c0c0,
+        0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+/* ==========================================================================
+   Work — Timeline Line + Nodes
+   ========================================================================== */
+.timeline-container {
+    position: relative;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 199px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    transform-origin: top center;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 193px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    top: 6px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-item.is-active::before {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .timeline-line,
+    .timeline-item::before {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Animated Counters
+   ========================================================================== */
+.counter {
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Case Study Cards
+   ========================================================================== */
+.case-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.case-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    background: var(--surface);
+    transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
+        box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+.case-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+}
+
+.case-card-bg-text {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 102px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.04);
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    font-family: var(--font-display);
+}
+
+.case-card-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.case-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.case-card h3 {
+    font-size: var(--font-h3);
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.case-card p {
+    font-size: var(--font-body);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 640px;
+    margin-bottom: 32px;
+}
+
+.case-metrics {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metric-value {
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: var(--font-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .case-card {
+        padding: 28px 24px;
+        border-radius: 16px;
+    }
+
+    .case-card-bg-text {
+        font-size: 54px;
+        right: 20px;
+    }
+
+    .metric-value {
+        font-size: 20px;
+    }
+
+    .case-metrics {
+        gap: 24px;
+    }
+}
+
+/* ==========================================================================
+   Product Cards — Spotlight + Tilt
+   ========================================================================== */
+.product-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    background: radial-gradient(
+        400px circle at var(--sx, 50%) var(--sy, 50%),
+        rgba(255, 255, 255, 0.18),
+        transparent 60%
+    );
+    border-radius: 20px;
+}
+
+.product-card:hover .card-spotlight {
+    opacity: 1;
+}
+
+.product-card > *:not(.card-spotlight) {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Contact Key — Enhanced Hover
+   ========================================================================== */
+.row-light .key:hover {
+    filter: brightness(1.04);
+    transform: translateY(-2px);
+    box-shadow:
+        0 9px 0 #bebebe,
+        0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+.row-dark .key:hover {
+    filter: brightness(1.04);
+    transform: translateY(-2px);
+    box-shadow:
+        0 9px 0 #a6a6a6,
+        0 14px 32px rgba(0, 0, 0, 0.26);
+}
+
+.key:active {
+    transform: translateY(7px) !important;
+    box-shadow:
+        0 0px 0 #aaaaaa,
+        0 2px 6px rgba(0, 0, 0, 0.12) !important;
+    filter: brightness(0.97) !important;
+}
+
+.row-light .key::after,
+.row-dark .key::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.row-light .key:hover::after {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    opacity: 1;
+}
+
+.row-dark .key:hover::after {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Prefers-Reduced-Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
     }
 }
