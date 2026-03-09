@@ -7,6 +7,15 @@
     <title>Nitish Upadhyay | Portfolio</title>
     <meta name="description" content="Personal portfolio of Nitish Upadhyay, showcasing design and development work.">
     <link rel="icon" type="image/png" href="assets/logo_new.png">
+    <script>
+      (function () {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="style.css">
     <!-- Lucide icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -47,6 +56,24 @@
                 <a href="#works">Experience</a>
                 <a href="#case-studies">Case Studies</a>
                 <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                  <!-- Moon: visible in light mode -->
+                  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <!-- Sun: visible in dark mode -->
+                  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+                    <line x1="12" y1="3" x2="12" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="12" y1="19" x2="12" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="3" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="19" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="5.636" y1="5.636" x2="7.05" y2="7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="16.95" y1="16.95" x2="18.364" y2="18.364" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="5.636" y1="18.364" x2="7.05" y2="16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <line x1="16.95" y1="7.05" x2="18.364" y2="5.636" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </button>
             </div>
         </div>
     </nav>

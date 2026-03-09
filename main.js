@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================= */
     const navLinkEls = document.querySelectorAll('.nav-links a');
     const indicator = document.querySelector('.nav-indicator');
-    const sectionIds = ['#about', '#works', '#case-studies', '#products', '#contact'];
+    const sectionIds = ['#about', '#works', '#case-studies', '#contact'];
 
     function setIndicator(link) {
         if (!link || !indicator) return;
@@ -483,7 +483,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =========================================================
-       Section 16: Smooth Scroll via Lenis
+       Section 16: Theme Toggle
+       ========================================================= */
+    const themeToggleBtn = document.getElementById('themeToggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+
+    /* =========================================================
+       Section 17: Smooth Scroll via Lenis
        ========================================================= */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
