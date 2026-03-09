@@ -206,6 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Overview image — fade up with slight scale
+        const overviewImg = document.querySelector('.cs-overview-image');
+        if (overviewImg) {
+            gsap.from(overviewImg, {
+                opacity: 0, y: 32, scale: 0.97, duration: 0.9, ease: 'power2.out',
+                scrollTrigger: { trigger: overviewImg, start: 'top 85%' }
+            });
+        }
+
         // Footer
         const footer = document.querySelector('.cs-footer');
         if (footer) {

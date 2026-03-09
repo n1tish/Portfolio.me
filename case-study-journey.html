@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From Support to Product to AI Builder | Nitish Upadhyay</title>
-    <meta name="description" content="How 6+ years of being deep in customer pain translated into sharper product instincts and an AI-first approach to building.">
+    <meta name="description"
+        content="How 6+ years of being deep in customer pain translated into sharper product instincts and an AI-first approach to building.">
     <script>
-      (function () {
-        var saved = localStorage.getItem('theme');
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (saved === 'dark' || (!saved && prefersDark)) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
-      })();
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
     </script>
     <link rel="stylesheet" href="case-study.css">
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -22,7 +24,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="case-study.js" defer></script>
+    <script>
+        window.addEventListener('message', function (e) {
+            if (e.data && e.data.iframeHeight) {
+                var iframe = document.getElementById('careerFlowchart');
+                if (iframe) iframe.style.height = e.data.iframeHeight + 'px';
+            }
+        });
+    </script>
 </head>
+
 <body>
 
     <!-- Custom Cursor -->
@@ -36,26 +47,37 @@
     <nav class="cs-nav">
         <div class="cs-nav-inner">
             <a href="index.html#case-studies" class="cs-back">
-                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
                 Back to Case Studies
             </a>
             <div style="display:flex;align-items:center;gap:12px;">
                 <span class="cs-nav-label">Case Study</span>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
-                    <line x1="12" y1="3" x2="12" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="12" y1="19" x2="12" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="3" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="19" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="5.636" y1="5.636" x2="7.05" y2="7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="16.95" y1="16.95" x2="18.364" y2="18.364" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="5.636" y1="18.364" x2="7.05" y2="16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="16.95" y1="7.05" x2="18.364" y2="5.636" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" />
+                        <line x1="12" y1="3" x2="12" y2="5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="12" y1="19" x2="12" y2="21" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="3" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="19" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="5.636" y1="5.636" x2="7.05" y2="7.05" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="16.95" y1="16.95" x2="18.364" y2="18.364" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="5.636" y1="18.364" x2="7.05" y2="16.95" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        <line x1="16.95" y1="7.05" x2="18.364" y2="5.636" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -70,27 +92,25 @@
                 <span class="cs-eyebrow-company">2019 – Present · TCS → Trilogy → Zapier → Thena</span>
             </div>
             <h1 class="cs-title">From support to product to AI builder.</h1>
-            <p class="cs-subtitle">How 6+ years of being deep in customer pain, product bugs, and escalation queues shaped sharper product instincts — and eventually a fluency in building with AI.</p>
+            <p class="cs-subtitle">How 6+ years of being deep in customer pain, product bugs, and escalation queues
+                shaped sharper product instincts — and eventually a fluency in building with AI.</p>
             <div class="cs-metrics-strip">
                 <div class="cs-metric-item">
                     <div class="cs-metric-value">6+</div>
                     <div class="cs-metric-label">Years in industry</div>
                 </div>
                 <div class="cs-metric-item">
-                    <div class="cs-metric-value">4</div>
-                    <div class="cs-metric-label">Roles across functions</div>
+                    <div class="cs-metric-value">515</div>
+                    <div class="cs-metric-label">Commits in 8 months</div>
                 </div>
                 <div class="cs-metric-item">
-                    <div class="cs-metric-value">100+</div>
-                    <div class="cs-metric-label">Product improvements filed</div>
+                    <div class="cs-metric-value">$250K+</div>
+                    <div class="cs-metric-label">Direct revenue generated</div>
                 </div>
                 <div class="cs-metric-item">
-                    <div class="cs-metric-value">0→1</div>
-                    <div class="cs-metric-label">AI products shipped</div>
+                    <div class="cs-metric-value">10+</div>
+                    <div class="cs-metric-label">Products shipped from 0 to 1</div>
                 </div>
-            </div>
-            <div class="cs-hero-image">
-                <img src="assets/Support to PM.png" alt="Nitish Upadhyay — GitHub profile showing contribution activity at Thena">
             </div>
         </div>
     </header>
@@ -104,136 +124,108 @@
             <div class="cs-two-col-wide">
                 <div>
                     <h2 class="cs-section-title">Not a straight line — a deliberate climb.</h2>
-                    <p class="cs-body-text">Most product managers come from engineering or MBA programmes. I came from the queue — handling escalations, debugging broken Zaps at midnight, and sitting inside customer frustration long enough to understand it deeply.</p>
-                    <p class="cs-body-text">That unusual path turned out to be a superpower. Every product decision I make is grounded in something I have personally felt: the friction of a confusing UI, the cost of missing SLA, the moment a support rep realises the product cannot do what the customer needs it to do.</p>
-                    <div class="cs-callout">
-                        <p>"The best product instincts I have come not from frameworks, but from having spent years on the other side of them — watching users struggle in real time."</p>
+                    <p class="cs-body-text">Most product managers come from engineering or MBA programmes. I didn't
+                        start in product — I started on the edge of it, where things break first. Handling escalations,
+                        debugging broken workflows at midnight, sitting inside customer frustration long enough to
+                        understand it deeply.</p>
+                    <p class="cs-body-text">That path turned out to be a superpower. Every product decision I make is
+                        grounded in something I have personally felt: confusing UX that looks fine on paper, features
+                        that technically work but fail in real workflows, customers blocked at the worst possible
+                        moment. I learned early that not every problem needs a new feature — many just need a better
+                        default, clearer messaging, or a simpler mental model.</p>
+                    <div class="cs-callout" style="margin-bottom: 0;">
+                        <p>"I don't ask 'is this correct by spec?' I ask — what happens when this breaks at 2am for a
+                            paying customer?"</p>
                     </div>
                 </div>
-                <div>
-                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">The arc</h3>
-                    <ul class="cs-list">
-                        <li>Started as a Systems Engineer supporting enterprise software across 40+ countries</li>
-                        <li>Moved into product support at scale — 1,000+ tickets analysed across 6 B2B SaaS products</li>
-                        <li>Joined Zapier as a Senior Product Support Engineer; operated at the boundary of product and engineering</li>
-                        <li>Began filing product feedback, influencing roadmaps, and co-building AI-powered tooling</li>
-                        <li>Made the transition to Senior Product Manager at Thena — owning 0→1 AI product development end-to-end</li>
-                        <li>Became fluent in LLMs, RAG, agentic systems, and AI evaluation through direct product ownership</li>
-                    </ul>
+                <div class="cs-overview-image">
+                    <img src="assets/Celestial Ascent.png" alt="Man climbing stairs — a deliberate climb">
                 </div>
-            </div>
-        </section>
-
-        <!-- Timeline -->
-        <section class="cs-section">
-            <span class="cs-section-label">The Path</span>
-            <h2 class="cs-section-title">Four roles, one through-line.</h2>
-            <p class="cs-body-text" style="margin-bottom: 56px;">Each role added a layer — technical depth, customer empathy, product craft, AI fluency. None of it was wasted.</p>
-
-            <div class="cs-timeline">
-
-                <div class="cs-timeline-item">
-                    <div class="cs-timeline-period">Jul 2019 — Sep 2020</div>
-                    <div class="cs-timeline-role">Systems Engineer</div>
-                    <div class="cs-timeline-company">Tata Consultancy Services</div>
-                    <p class="cs-timeline-desc">Supported an enterprise steel manufacturing application used across 40+ countries. Maintained 99.5% uptime and reduced mean time to resolution by 20% through troubleshooting documentation. This role taught me that reliability is not a feature — it is the foundation. I learned what "production down" truly costs.</p>
-                    <div class="cs-tags">
-                        <span class="cs-tag">Technical support</span>
-                        <span class="cs-tag">Incident management</span>
-                        <span class="cs-tag">Documentation</span>
-                        <span class="cs-tag">Enterprise ops</span>
-                    </div>
-                </div>
-
-                <div class="cs-timeline-item">
-                    <div class="cs-timeline-period">Sep 2020 — Jan 2022</div>
-                    <div class="cs-timeline-role">Product Support Analyst</div>
-                    <div class="cs-timeline-company">Trilogy, Crossover</div>
-                    <p class="cs-timeline-desc">Analysed 1,000+ support tickets across 6 B2B SaaS products to surface recurring UX and reliability issues. Started partnering directly with product teams, filing structured feedback that led to 6 critical UX improvements. This is where I learned that patterns in support data are really a map of product debt — if you know how to read them.</p>
-                    <div class="cs-tags">
-                        <span class="cs-tag">Ticket analysis</span>
-                        <span class="cs-tag">UX feedback</span>
-                        <span class="cs-tag">Product partnership</span>
-                        <span class="cs-tag">B2B SaaS</span>
-                    </div>
-                </div>
-
-                <div class="cs-timeline-item">
-                    <div class="cs-timeline-period">Jan 2022 — Sep 2024</div>
-                    <div class="cs-timeline-role">Senior Product Support Engineer</div>
-                    <div class="cs-timeline-company">Zapier</div>
-                    <p class="cs-timeline-desc">Worked at the intersection of product, engineering, and customer experience for a platform with 700K+ users. Maintained a 1.3 R2R (team best), 95% QA score across 2,500+ interactions. But more importantly: partnered with product to build an AI ticket automation suite, designed an AI recommendation engine, and contributed 100+ product improvements with a 60% acceptance rate. This was the role where I stopped being adjacent to product and started being product.</p>
-                    <div class="cs-tags">
-                        <span class="cs-tag">AI tooling</span>
-                        <span class="cs-tag">Product influence</span>
-                        <span class="cs-tag">Automation</span>
-                        <span class="cs-tag">Scale</span>
-                        <span class="cs-tag">Cross-functional</span>
-                    </div>
-                </div>
-
-                <div class="cs-timeline-item active">
-                    <div class="cs-timeline-period">Sep 2024 — Present</div>
-                    <div class="cs-timeline-role">Senior Product Manager</div>
-                    <div class="cs-timeline-company">Thena</div>
-                    <p class="cs-timeline-desc">Owned product strategy and roadmap for an AI-powered customer support platform. Built an AI copilot and web chat from 0→1, an enterprise accounts CRM, a native analytics and insights platform, and billing infrastructure. Led customer interviews (20+), defined AI evaluation frameworks, and shipped with a team of 4 engineers and 1 designer. The full stack: discovery → definition → delivery → measurement.</p>
-                    <div class="cs-tags">
-                        <span class="cs-tag">0→1 product</span>
-                        <span class="cs-tag">AI/LLM</span>
-                        <span class="cs-tag">RAG</span>
-                        <span class="cs-tag">Roadmap ownership</span>
-                        <span class="cs-tag">GTM</span>
-                        <span class="cs-tag">Monetisation</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <!-- What changed at each stage -->
         <section class="cs-section">
             <span class="cs-section-label">Key transitions</span>
-            <h2 class="cs-section-title">What each shift unlocked.</h2>
-
-            <div class="cs-cards" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="cs-card">
-                    <svg class="cs-card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <h4>Support → Analyst</h4>
-                    <p>Shifted from solving individual tickets to identifying systemic issues. Learned to turn volume into signal — the difference between fixing a bug and understanding a category of failure.</p>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 80px; align-items: start;">
+                <div>
+                    <h2 class="cs-section-title">What each shift unlocked.</h2>
+                    <div style="margin-top: 32px;">
+                        <p class="cs-body-text"><strong>Support → Analyst.</strong> Shifted from solving individual
+                            tickets to identifying systemic issues. Learned that "rare edge cases" are never actually
+                            rare — and that bad defaults cause more damage than missing features.</p>
+                        <p class="cs-body-text"><strong>Analyst → Engineer.</strong> Gained technical depth. Started
+                            reading code, understanding APIs, and speaking the language of engineering. Specificity
+                            matters — a sharp bug report is itself a product contribution.</p>
+                        <p class="cs-body-text"><strong>Engineer → PM.</strong> Moved from influencing to owning. The
+                            instinct wasn't to ship faster — it was to ask: who bears the cost if we get this wrong? Can
+                            support explain this without a 20-message thread?</p>
+                        <p class="cs-body-text"><strong>PM → Builder.</strong> Stopped waiting for the translation layer
+                            between vision and execution. With AI as a co-builder, I could take a requirement and ship
+                            it exactly as imagined — every feature, every interaction, every design detail.</p>
+                    </div>
                 </div>
-                <div class="cs-card">
-                    <svg class="cs-card-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    <h4>Analyst → Engineer</h4>
-                    <p>Gained technical depth. Started reading code, understanding APIs, and speaking the language of engineering. This made me a better collaborator and a sharper bug filer — specificity matters.</p>
-                </div>
-                <div class="cs-card">
-                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    <h4>Engineer → PM</h4>
-                    <p>Moved from influencing to owning. Took on full accountability for outcomes — strategy, prioritisation, delivery, and measurement. All the muscle memory from before paid dividends here.</p>
+                <div style="margin-top: 120px;">
+                    <iframe id="careerFlowchart" src="shift-flowchart.html" frameborder="0" scrolling="no"
+                        allowtransparency="true"
+                        style="width: 100%; height: 480px; border: none; background: transparent;"></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- AI Generalist -->
+        <!-- The builder shift -->
         <section class="cs-section">
-            <span class="cs-section-label">The AI layer</span>
-            <div class="cs-two-col">
+            <span class="cs-section-label">The builder shift</span>
+            <h2 class="cs-section-title">When I stopped spec'ing and started shipping.</h2>
+            <div class="cs-hero-image" style="margin-bottom: 48px;">
+                <img src="assets/Support to PM.png"
+                    alt="Nitish Upadhyay — GitHub profile showing contribution activity at Thena">
+            </div>
+            <div class="cs-two-col-wide">
                 <div>
-                    <h2 class="cs-section-title">How I became fluent in AI — not just adjacent to it.</h2>
-                    <p class="cs-body-text">Most product managers "work on AI products." I built them. That means writing prompts that actually hold up under adversarial input, designing RAG pipelines with the right chunking and retrieval strategy, defining evaluation rubrics that measure what matters, and debugging grounding failures at 2am before a demo.</p>
-                    <p class="cs-body-text">The fluency is not theoretical. It comes from ownership — from being the person who has to explain to an enterprise customer why the AI gave a wrong answer, and then having to fix it.</p>
+                    <p class="cs-body-text">The traditional PM loop has a quiet problem. An idea travels from your head
+                        through a spec, through engineering, through design, and back — and by then, it is no longer
+                        your idea. The back and forth erodes intent. What ships is often a negotiated version of what
+                        you imagined, stripped of the details that made it feel right.</p>
+                    <p class="cs-body-text">Pair coding and vibe coding changed that entirely. When a co-founder brought
+                        a requirement, I could build it exactly as I envisioned — every feature, every interaction,
+                        every design detail. No translation layer. No context lost between stakeholders each holding
+                        only part of the picture. The product in my head became the product in production.</p>
+                    <p class="cs-body-text">The biggest unlock was the customer feedback loop. Before: receive feedback,
+                        file it, wait for a sprint slot, review a diff, test, deploy. After: receive feedback, fix it,
+                        ship it — sometimes the same day. That compression changes how you build.</p>
+                    <div class="cs-callout">
+                        <p>"I hadn't written code in five years. I asked engineers relentless questions — how to do
+                            this, how to navigate that. But once the foundations clicked, something accelerated. The
+                            context I used to lose in hand-offs was now embedded in code I owned."</p>
+                    </div>
                 </div>
                 <div>
-                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">AI capabilities built in production</h3>
+                    <h3
+                        style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">
+                        The old loop vs the new one</h3>
                     <ul class="cs-list">
-                        <li>AI copilot with RAG-grounded response generation</li>
-                        <li>L1 deflection agent with per-channel knowledge scoping</li>
-                        <li>Sentiment scoring and priority surfacing on inbound requests</li>
-                        <li>AI evaluation framework: offline testing + in-product telemetry</li>
-                        <li>AI ticket automation suite (summarisation, draft replies, troubleshooting)</li>
-                        <li>AI recommendation engine for upsell opportunity detection</li>
-                        <li>Prompt engineering, context window optimisation, failure mode mapping</li>
+                        <li><strong>Before:</strong> requirement → research → ideas → spec → engineers → designer → back
+                            and forth → outcome ≠ vision</li>
+                        <li><strong>After:</strong> requirement → build exactly as imagined → ship → customer feedback →
+                            same-day fix</li>
+                        <li>Relearned coding fundamentals after 5 years away — with a lot of help from patient engineers
+                        </li>
+                        <li>Context that was always lost in hand-offs now lived in the code itself</li>
+                        <li>Pushed directly to GitHub, owned the full build-to-ship cycle end-to-end</li>
                     </ul>
+                    <div
+                        style="display: flex; align-items: baseline; gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border);">
+                        <div
+                            style="font-size: var(--font-h2); font-weight: 700; color: var(--text-primary); line-height: 1;">
+                            515</div>
+                        <div>
+                            <div style="font-size: var(--font-body); font-weight: 600; color: var(--text-primary);">
+                                commits in 8 months</div>
+                            <div style="font-size: var(--font-small); color: var(--text-secondary); margin-top: 4px;">
+                                revamping the platform from scratch — as PM, builder, and designer</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -285,4 +277,5 @@
 
 
 </body>
+
 </html>

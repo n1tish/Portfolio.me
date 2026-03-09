@@ -661,6 +661,120 @@ a { text-decoration: none; color: inherit; }
 
 .cs-footer-nav a:hover { color: var(--text-primary); }
 
+/* Overview image */
+.cs-overview-image {
+    position: relative;
+    align-self: stretch;
+    min-height: 200px;
+}
+
+.cs-overview-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ==========================================================================
+   Career Flowchart
+   ========================================================================== */
+.cs-flowchart {
+    display: flex;
+    align-items: stretch;
+    margin-top: 48px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.cs-flow-node {
+    flex: 1;
+    min-width: 150px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cs-flow-node.active {
+    border-color: var(--text-primary);
+}
+
+.cs-flow-period {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+.cs-flow-role {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+.cs-flow-company {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.cs-flow-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: auto;
+}
+
+.cs-flow-badge {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 7px;
+}
+
+.cs-flow-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    flex-shrink: 0;
+    gap: 8px;
+    min-width: 80px;
+}
+
+.cs-flow-arrow-icon {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-secondary);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+.cs-flow-unlock {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.4;
+    font-style: italic;
+}
+
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -687,6 +801,17 @@ a { text-decoration: none; color: inherit; }
 
     .cs-cards { grid-template-columns: 1fr; }
     .cs-outcomes { grid-template-columns: 1fr; }
+
+    .cs-flowchart { flex-direction: column; overflow-x: visible; }
+    .cs-flow-connector {
+        flex-direction: row;
+        padding: 6px 0;
+        min-width: 0;
+        gap: 12px;
+        justify-content: flex-start;
+    }
+    .cs-flow-arrow-icon { transform: rotate(90deg); }
+    .cs-flow-unlock { text-align: left; }
 
     .cs-footer-inner { flex-direction: column; gap: 24px; align-items: flex-start; }
 
