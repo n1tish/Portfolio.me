@@ -3,7 +3,9 @@
 /* Typography and Design Tokens */
 :root {
     /* Colors */
-    --bg: #e3e3e3;
+    /* --bg: #e3e3e3; */
+    --bg: #000000;
+
     --surface: #f5f5f7;
     --border: #d2d2d7;
     --text-primary: #1d1d1f;
@@ -137,7 +139,7 @@ a {
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: var(--font-hero);
+    font-size: 48px;
     line-height: 1.1;
     letter-spacing: -0.015em;
     margin-bottom: 32px;
@@ -254,6 +256,59 @@ a {
     /* Spline handles transparency natively via its export settings */
 }
 
+/* Scroll Hint */
+.scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    animation: scrollHintFade 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.scroll-hint-text {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.scroll-hint-arrow {
+    width: 16px;
+    height: 16px;
+    animation: scrollHintBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollHintBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+@keyframes scrollHintFade {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 /* Formatted entrance animation */
 .fade-up {
     opacity: 0;
@@ -363,10 +418,11 @@ a {
 }
 
 .about-v2-photo-wrap {
+    width: 80%;
     overflow: hidden;
     border-radius: 8px;
     transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
-                box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+        box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
     will-change: transform;
 }
 
@@ -384,9 +440,9 @@ a {
     display: block;
     filter: grayscale(10%);
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-                width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-                border-radius 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-                aspect-ratio 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+        border-radius 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+        aspect-ratio 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .about-v2-photo-wrap:hover .about-v2-photo {
@@ -405,7 +461,7 @@ a {
 
 .about-v2-headline {
     font-family: var(--font-display);
-    font-size: clamp(28px, 3vw, 40px);
+    font-size: 24px;
     font-weight: 500;
     line-height: 1.15;
     letter-spacing: -0.01em;
@@ -414,7 +470,7 @@ a {
 }
 
 .about-v2-body {
-    font-size: var(--font-body-large);
+    font-size: var(--font-body);
     font-weight: 300;
     line-height: 1.65;
     color: var(--text-secondary);
@@ -437,7 +493,7 @@ a {
 
 .about-v2-stat-value {
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
     letter-spacing: -0.02em;
     color: var(--text-primary);
@@ -1260,6 +1316,7 @@ a {
 }
 
 @media (max-width: 768px) {
+
     .timeline-line,
     .timeline-item::before {
         display: none;
@@ -1475,11 +1532,9 @@ a.case-card {
     z-index: 0;
     opacity: 0;
     transition: opacity 0.25s ease;
-    background: radial-gradient(
-        400px circle at var(--sx, 50%) var(--sy, 50%),
-        rgba(255, 255, 255, 0.18),
-        transparent 60%
-    );
+    background: radial-gradient(400px circle at var(--sx, 50%) var(--sy, 50%),
+            rgba(255, 255, 255, 0.18),
+            transparent 60%);
     border-radius: 8px;
 }
 
@@ -1487,7 +1542,7 @@ a.case-card {
     opacity: 1;
 }
 
-.product-card > *:not(.card-spotlight) {
+.product-card>*:not(.card-spotlight) {
     position: relative;
     z-index: 1;
 }
@@ -1551,6 +1606,7 @@ a.case-card {
    Prefers-Reduced-Motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     ::before,
     ::after {
