@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Built AI Features | Nitish Upadhyay</title>
+    <meta name="description" content="Building AI-powered features from 0→1 — an AI copilot, L1 deflection agent, sentiment analysis, and an evaluation framework that achieved 92% grounding coverage.">
+    <link rel="stylesheet" href="case-study.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="index.html" class="cs-back">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                Back to Portfolio
+            </a>
+            <span class="cs-nav-label">Case Study</span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="cs-hero">
+        <div class="cs-hero-inner">
+            <div class="cs-eyebrow">
+                <span class="cs-eyebrow-tag">AI Product</span>
+                <span class="cs-eyebrow-dot"></span>
+                <span class="cs-eyebrow-company">Thena + Zapier · 2022 – Present</span>
+            </div>
+            <h1 class="cs-title">How I built AI features.</h1>
+            <p class="cs-subtitle">From prompt engineering to RAG pipelines to evaluation frameworks — shipping AI that actually works in production, measured against outcomes that matter: deflection, accuracy, and customer satisfaction.</p>
+            <div class="cs-metrics-strip">
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">37%</div>
+                    <div class="cs-metric-label">Inbound volume reduction</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">92%</div>
+                    <div class="cs-metric-label">Grounding coverage</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">40%</div>
+                    <div class="cs-metric-label">AHT reduction</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">800+</div>
+                    <div class="cs-metric-label">Hours saved / month</div>
+                </div>
+            </div>
+            <div class="cs-hero-image">
+                <img src="assets/AI Flows.png" alt="Thena AI Flows — request detail view showing AI-evaluated status updates and account context panel">
+            </div>
+        </div>
+    </header>
+
+    <!-- Body -->
+    <main class="cs-body">
+
+        <!-- Philosophy -->
+        <section class="cs-section">
+            <span class="cs-section-label">Approach</span>
+            <div class="cs-two-col-wide">
+                <div>
+                    <h2 class="cs-section-title">AI as infrastructure, not magic.</h2>
+                    <p class="cs-body-text">Every AI feature I have built starts with the same question: what is the human doing today that AI can do better, faster, or at a scale that would otherwise be impossible? Not: "what LLM capability can we wrap in a product?"</p>
+                    <p class="cs-body-text">The second question is always: how will we know if it worked? AI features that ship without a measurement plan are experiments, not products. Every feature in this case study has a success metric that was defined before the first line of prompt engineering.</p>
+                    <div class="cs-callout">
+                        <p>"An AI feature without an evaluation strategy is a liability. You can't improve what you can't measure — and in AI, what you can't measure will eventually fail you at the worst possible time."</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">AI features shipped</h3>
+                    <ul class="cs-list">
+                        <li>AI copilot with RAG-grounded response generation (Thena)</li>
+                        <li>L1 deflection agent with per-channel knowledge scoping (Thena)</li>
+                        <li>Sentiment scoring and priority surfacing (Thena)</li>
+                        <li>AI evaluation framework: offline + in-product telemetry (Thena)</li>
+                        <li>AI ticket automation suite (Zapier)</li>
+                        <li>AI-driven upsell recommendation engine (Zapier)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 1: AI Copilot -->
+        <section class="cs-section">
+            <span class="cs-section-label">Feature 01</span>
+            <h2 class="cs-section-title">AI copilot — from 0→1.</h2>
+
+            <div class="cs-two-col" style="margin-bottom: 48px;">
+                <div>
+                    <h3 style="font-size: var(--font-body-large); font-weight: 500; color: var(--text-primary); margin-bottom: 12px;">The problem</h3>
+                    <p class="cs-body-text">Support agents at Thena's customers were manually drafting every response from scratch. Even for questions that had been answered dozens of times before. The knowledge existed — in docs, in previous tickets, in internal wikis — but agents had to find it themselves on every interaction.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-body-large); font-weight: 500; color: var(--text-primary); margin-bottom: 12px;">The hypothesis</h3>
+                    <p class="cs-body-text">If we could surface an AI-generated draft response grounded in the customer's own knowledge base, agents would accept and edit it rather than starting from blank. We'd reduce handle time and improve response consistency without removing human judgement from the loop.</p>
+                </div>
+            </div>
+
+            <div class="cs-cards" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <h4>Knowledge architecture</h4>
+                    <p>Multi-source RAG pipeline ingesting URLs, PDFs, internal docs, and historical resolved tickets. Configurable chunking and retrieval tuned per customer's content type and query distribution.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <h4>Response generation</h4>
+                    <p>Grounded generation with configurable answer length and tone. System prompts scoped per workspace. Fallback behaviour when knowledge base coverage is insufficient — never hallucinate, always acknowledge gaps.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <h4>Human-in-the-loop</h4>
+                    <p>Every AI response is presented as a draft — agents can edit, regenerate, or discard. No AI response auto-sends without agent review. The product is an accelerator, not an autonomous responder.</p>
+                </div>
+            </div>
+
+            <div class="cs-outcomes" style="margin-top: 40px;">
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">37%</div>
+                    <div class="cs-outcome-title">Reduction in inbound support volume</div>
+                    <p class="cs-outcome-desc">L1 queries deflected before reaching a human agent via the AI copilot and web chat combo. Measured against pre-launch baseline across the same accounts.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">40%</div>
+                    <div class="cs-outcome-title">Reduction in average handle time</div>
+                    <p class="cs-outcome-desc">Agents using the copilot resolved tickets significantly faster than without it. Draft acceptance rate was high enough that the net AHT impact was material, not marginal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: L1 Deflection -->
+        <section class="cs-section">
+            <span class="cs-section-label">Feature 02</span>
+            <h2 class="cs-section-title">L1 deflection — autonomous front-line response.</h2>
+
+            <div class="cs-two-col-wide" style="margin-bottom: 48px;">
+                <div>
+                    <p class="cs-body-text">Where the copilot assists human agents, L1 Deflection operates autonomously — responding to inbound customer requests in Slack channels before a human agent ever sees them. It is configurable per-channel, with independent knowledge sources and answer configurations per assistant.</p>
+                    <p class="cs-body-text">The hardest product decision here was defining failure gracefully. An autonomous AI that gives wrong answers is worse than no AI. We built explicit fallback rules: if confidence below threshold, escalate to human immediately and flag for review. Every escalation is a training signal.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">Configuration surface</h3>
+                    <ul class="cs-list">
+                        <li>Per-channel agent configuration with independent knowledge scoping</li>
+                        <li>Source sync status monitoring: processing / synced / failed states</li>
+                        <li>Configurable answer length, confidence thresholds, and escalation rules</li>
+                        <li>Duplicate sources across assistants without redundant setup</li>
+                        <li>Enable/disable per workspace with permission-gated access control</li>
+                        <li>Live source sync with on-demand re-sync capability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cs-callout">
+                <p>"Deflection is only valuable if the deflected answer is correct. The first KPI we tracked was not deflection rate — it was deflection accuracy. Getting that right first is what made deflection rate a meaningful number."</p>
+            </div>
+        </section>
+
+        <!-- Feature 3: Evaluation Framework -->
+        <section class="cs-section">
+            <span class="cs-section-label">Feature 03 — the one nobody sees</span>
+            <h2 class="cs-section-title">The AI evaluation framework — how we knew it was working.</h2>
+
+            <div class="cs-two-col" style="margin-bottom: 48px;">
+                <div>
+                    <p class="cs-body-text">Every AI feature Thena shipped was backed by an evaluation strategy before it went to production. This is not the glamorous part of AI product development — but it is the part that determines whether the glamorous features actually hold up.</p>
+                    <p class="cs-body-text">The framework had two layers: offline testing against a curated evaluation set, and in-product telemetry tracking grounding quality, acceptance rates, and failure modes in real usage.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">What we measured</h3>
+                    <ul class="cs-list">
+                        <li>Grounding coverage: % of responses with verifiable source citations</li>
+                        <li>Accuracy rate: human review of sampled outputs against ground truth</li>
+                        <li>Hallucination rate: responses containing claims not present in knowledge sources</li>
+                        <li>Draft acceptance rate: % of AI drafts agents accepted with minimal edits</li>
+                        <li>Deflection accuracy: % of L1 deflections rated correct by customers (CSAT proxy)</li>
+                        <li>Failure mode taxonomy: categorised log of every AI error type</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cs-outcomes">
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">92%</div>
+                    <div class="cs-outcome-title">Grounding coverage achieved</div>
+                    <p class="cs-outcome-desc">92% of all AI responses had verifiable source citations — up from ~65% at initial launch. Improvement driven by iterative RAG tuning guided by the evaluation framework.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">40%</div>
+                    <div class="cs-outcome-title">Reduction in AI-related errors</div>
+                    <p class="cs-outcome-desc">Systematic identification and categorisation of failure modes allowed targeted fixes. Each sprint included evaluation findings as a first-class input to the prioritisation process.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 4: Zapier work -->
+        <section class="cs-section">
+            <span class="cs-section-label">Earlier work — Zapier</span>
+            <h2 class="cs-section-title">Building AI from the support side.</h2>
+            <p class="cs-body-text" style="margin-bottom: 48px;">Before owning AI product at Thena, I was the support engineer at Zapier who helped build AI tooling from the other side of the product boundary — as a power user and partner to the product team.</p>
+
+            <div class="cs-cards" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <h4>AI ticket automation suite</h4>
+                    <p>Partnered with product and engineering to deliver AI-powered ticket summarisation, draft reply generation, and troubleshooting suggestion features across Zapier's 50+ agent support team. Reduced email handle time by 13%, saving 400+ hours per month. I was the primary product partner defining requirements from the support workflow perspective.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <h4>AI upsell recommendation engine</h4>
+                    <p>Designed an AI-driven recommendation engine that analysed customer usage data and workflow patterns to surface upsell opportunities at the moment of maximum relevance. Increased advanced feature adoption by 15% and generated a $100K+ quarterly pipeline. The insight: support interactions are the highest-signal moment for product-led growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How I think about AI product -->
+        <section class="cs-section">
+            <span class="cs-section-label">Mental model</span>
+            <h2 class="cs-section-title">How I think about shipping AI that works.</h2>
+
+            <ol class="cs-steps">
+                <li class="cs-step">
+                    <span class="cs-step-num">01</span>
+                    <div class="cs-step-content">
+                        <h4>Start with the human workflow, not the model capability</h4>
+                        <p>Map what the human is doing today, step by step. Identify the highest-friction, most repetitive, or most error-prone step. That is where AI should enter — replacing a specific action, not the entire flow. Avoid the trap of "what can the LLM do?" and start with "what is the user trying to accomplish?"</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">02</span>
+                    <div class="cs-step-content">
+                        <h4>Define failure modes before defining success</h4>
+                        <p>Every AI feature has a failure mode that is worse than not having the feature at all. Define it explicitly before you ship. For a response copilot: hallucination. For deflection: wrong answer that damages customer trust. For sentiment scoring: false positive that misprioritises a critical account. Know your worst case and build guardrails around it.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">03</span>
+                    <div class="cs-step-content">
+                        <h4>Measure the right thing, not the easy thing</h4>
+                        <p>Deflection rate is easy to measure but meaningless without deflection accuracy. Draft acceptance rate is easy to measure but meaningless without understanding edit depth. Build measurement that captures quality, not just volume. The signal-to-noise ratio of your evaluation data determines how fast you can improve.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">04</span>
+                    <div class="cs-step-content">
+                        <h4>Keep humans in the loop until trust is earned</h4>
+                        <p>AI features should earn autonomy incrementally. Start with AI-assist (human reviews every output), graduate to AI-default (human can override), then to AI-autonomous (human is notified, not required). Move between levels based on measured accuracy, not time elapsed or pressure to ship faster.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">05</span>
+                    <div class="cs-step-content">
+                        <h4>Every AI sprint has an evaluation pass</h4>
+                        <p>Evaluation is not a launch gate — it is a continuous practice. Every two weeks, a sample of AI outputs gets reviewed against the ground truth rubric. Every failure mode gets categorised and fed back into prioritisation. The evaluation data is the product roadmap for the AI layer.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Tech stack / skills -->
+        <section class="cs-section">
+            <span class="cs-section-label">Technical fluency</span>
+            <h2 class="cs-section-title">The stack behind the product decisions.</h2>
+            <div class="cs-two-col">
+                <div>
+                    <p class="cs-body-text">I am not an ML engineer, but I am fluent enough in AI infrastructure to have a direct conversation with engineers about implementation tradeoffs — retrieval strategy, chunking logic, context window design, prompt architecture, evaluation rubric design.</p>
+                    <p class="cs-body-text">That fluency comes from doing, not reading. Every framework and concept below has been used in a shipped product, debugged in production, or stress-tested in an evaluation run.</p>
+                </div>
+                <div>
+                    <div style="margin-bottom: 24px;">
+                        <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">Core AI concepts</h3>
+                        <div class="cs-tags">
+                            <span class="cs-tag">Prompt engineering</span>
+                            <span class="cs-tag">RAG</span>
+                            <span class="cs-tag">LLMs</span>
+                            <span class="cs-tag">Context engineering</span>
+                            <span class="cs-tag">AI agents</span>
+                            <span class="cs-tag">Multi-agent systems</span>
+                            <span class="cs-tag">MCP</span>
+                            <span class="cs-tag">Memory architectures</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 12px; font-weight: 500;">Evaluation & measurement</h3>
+                        <div class="cs-tags">
+                            <span class="cs-tag">Grounding accuracy</span>
+                            <span class="cs-tag">Hallucination detection</span>
+                            <span class="cs-tag">Offline eval sets</span>
+                            <span class="cs-tag">In-product telemetry</span>
+                            <span class="cs-tag">Failure mode taxonomy</span>
+                            <span class="cs-tag">RLHF-style feedback loops</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="cs-footer">
+        <div class="cs-footer-inner">
+            <div class="cs-footer-left">
+                <p>Start from the beginning</p>
+                <a href="case-study-journey.html">From support to product to AI builder →</a>
+            </div>
+            <nav class="cs-footer-nav">
+                <a href="index.html">Portfolio</a>
+                <a href="mailto:nixon.nitish@gmail.com">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        const bar = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+            bar.style.width = Math.min(pct, 100) + '%';
+        }, { passive: true });
+    </script>
+</body>
+</html>

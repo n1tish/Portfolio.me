@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600&display=swap');
 
 /* Typography and Design Tokens */
 :root {
@@ -78,9 +78,12 @@ a {
 
 .logo {
     font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-primary);
 }
 
 .nav-links {
@@ -194,7 +197,7 @@ a {
     justify-content: center;
     padding: 12px 24px;
     font-size: var(--font-small);
-    border-radius: 980px;
+    border-radius: 8px;
     font-weight: 500;
     transition: all 120ms ease;
     cursor: pointer;
@@ -292,6 +295,12 @@ a {
     margin-bottom: 40px;
 }
 
+.experience-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
 .section-index {
     display: block;
     font-size: var(--font-label);
@@ -303,8 +312,8 @@ a {
 
 .section-title {
     font-family: var(--font-display);
-    font-size: 41px;
-    font-weight: 600;
+    font-size: var(--font-h1);
+    font-weight: 500;
     max-width: 560px;
     line-height: 1.15;
     letter-spacing: -0.01em;
@@ -339,6 +348,107 @@ a {
     font-weight: 300;
     color: var(--text-secondary);
     line-height: 1.5;
+}
+
+/* About V2 (Experimental) */
+.about-v2-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-v2-image-col {
+    position: relative;
+}
+
+.about-v2-photo-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+.about-v2-photo-wrap:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+}
+
+.about-v2-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    display: block;
+    filter: grayscale(10%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                width 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                border-radius 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+                aspect-ratio 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.about-v2-photo-wrap:hover .about-v2-photo {
+    transform: scale(1.03);
+}
+
+.about-v2-content-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-v2-content-col .section-index {
+    display: block;
+}
+
+.about-v2-headline {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.about-v2-body {
+    font-size: var(--font-body-large);
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.about-v2-stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+}
+
+.about-v2-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.about-v2-stat-value {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.about-v2-stat-label {
+    font-size: var(--font-small);
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 /* Timeline specific styles (Case Studies) */
@@ -417,6 +527,14 @@ a {
     color: var(--text-primary);
 }
 
+.timeline-summary {
+    font-size: var(--font-body);
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
 /* ==========================================================================
    Products Section — Carousel
    ========================================================================== */
@@ -440,7 +558,7 @@ a {
     flex-shrink: 0;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 8px;
     padding: 32px;
     display: flex;
     flex-direction: column;
@@ -471,14 +589,14 @@ a {
     letter-spacing: 0.1em;
     color: var(--text-tertiary);
     border: 1px solid var(--border);
-    border-radius: 100px;
+    border-radius: 8px;
     padding: 4px 10px;
     align-self: flex-start;
 }
 
 .card-title {
-    font-size: 17px;
-    font-weight: 500;
+    font-size: var(--font-body-large);
+    font-weight: 400;
     color: var(--text-primary);
     margin-bottom: 16px;
     letter-spacing: -0.01em;
@@ -616,13 +734,13 @@ a {
     width: var(--key-width, 150px);
     height: 130px;
     border: none;
-    border-radius: 16px;
+    border-radius: 8px;
     cursor: pointer;
     user-select: none;
     position: relative;
-    font-family: 'Georgia', serif;
-    font-size: 1.23rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: var(--font-body);
+    font-weight: 400;
     letter-spacing: 0.03em;
     transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
     display: flex;
@@ -642,39 +760,54 @@ a {
     transition: all 0.15s ease;
 }
 
+.key svg.x-logo {
+    fill: currentColor;
+    stroke: none;
+    width: 22px;
+    height: 22px;
+}
+
 .key::before {
     content: '';
     position: absolute;
     inset: 7px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
     pointer-events: none;
 }
 
 /* Light Row */
 .row-light .key {
-    background-color: #ebebeb;
-    color: #b8b8b8;
+    background: linear-gradient(170deg, #f5f5f5 0%, #ececec 50%, #e1e1e1 100%);
+    color: #b0b0b0;
     box-shadow:
-        0 7px 0 #bebebe,
-        0 10px 24px rgba(0, 0, 0, 0.13);
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.07),
+        0 8px 0 #b2b2b2,
+        0 9px 1px rgba(0, 0, 0, 0.09),
+        0 18px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark Row */
 .row-dark .key {
-    background-color: #cecece;
+    background: linear-gradient(170deg, #dadada 0%, #d0d0d0 50%, #c3c3c3 100%);
     color: #1a1a1a;
     box-shadow:
-        0 7px 0 #a6a6a6,
-        0 10px 26px rgba(0, 0, 0, 0.24);
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.1),
+        0 8px 0 #9c9c9c,
+        0 9px 1px rgba(0, 0, 0, 0.14),
+        0 18px 44px rgba(0, 0, 0, 0.32);
 }
 
 /* Interactions */
 .key:active {
-    transform: translateY(5px) !important;
+    transform: translateY(7px) !important;
     box-shadow:
-        0 2px 0 #aaaaaa,
-        0 3px 8px rgba(0, 0, 0, 0.16) !important;
+        inset 0 2px 6px rgba(0, 0, 0, 0.14),
+        0 1px 0 #aaaaaa,
+        0 3px 8px rgba(0, 0, 0, 0.14) !important;
+    filter: brightness(0.96) !important;
 }
 
 .key:hover {
@@ -755,6 +888,11 @@ a {
     /* Carousel — tablet */
     .product-card {
         padding: 24px;
+    }
+
+    /* About V2 — tablet */
+    .about-v2-layout {
+        gap: 48px;
     }
 }
 
@@ -846,6 +984,34 @@ a {
         gap: 32px;
     }
 
+    /* About V2 — mobile */
+    .about-v2-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-v2-image-col {
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-v2-photo-wrap {
+        width: 140px;
+        border-radius: 50%;
+    }
+
+    .about-v2-photo {
+        width: 140px;
+        aspect-ratio: 1 / 1;
+        object-position: center top;
+        border-radius: 50%;
+    }
+
+    .about-v2-stats {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
     /* -- Timeline (Work & Case Studies) -- */
     .timeline-container {
         gap: 40px;
@@ -893,7 +1059,7 @@ a {
     .key {
         height: 100px;
         width: 120px !important;
-        border-radius: 12px;
+        border-radius: 8px;
     }
 
     .key-row {
@@ -959,6 +1125,12 @@ a {
 .loader-logo {
     opacity: 0;
     transform: scale(0.9);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 32px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-primary);
 }
 
 /* ==========================================================================
@@ -966,47 +1138,7 @@ a {
    ========================================================================== */
 .cursor-dot,
 .cursor-ring {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    top: 0;
-    left: 0;
-}
-
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--text-primary);
-}
-
-.cursor-ring {
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid rgba(29, 29, 31, 0.4);
-    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-}
-
-.cursor-ring.is-hovering {
-    width: 60px;
-    height: 60px;
-    border-color: rgba(29, 29, 31, 0.2);
-}
-
-@media (hover: none) {
-    .cursor-dot,
-    .cursor-ring {
-        display: none;
-    }
-
-    body {
-        cursor: auto;
-    }
-}
-
-body.no-touch {
-    cursor: none;
+    display: none;
 }
 
 /* ==========================================================================
@@ -1069,7 +1201,7 @@ body.no-touch {
 .skill-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 28px 24px;
     box-shadow:
         0 1px 0 1px rgba(255, 255, 255, 0.8) inset,
@@ -1113,8 +1245,8 @@ body.no-touch {
     content: '';
     position: absolute;
     left: 193px;
-    width: 13px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: var(--bg);
     border: 1.5px solid var(--border);
@@ -1145,18 +1277,22 @@ body.no-touch {
    Case Study Cards
    ========================================================================== */
 .case-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
     gap: 24px;
+    align-items: stretch;
 }
 
 .case-card {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 48px;
+    border-radius: 8px;
+    padding: 28px;
     background: var(--surface);
+    display: flex;
+    flex-direction: column;
     transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
         box-shadow 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
     will-change: transform;
@@ -1173,18 +1309,13 @@ body.no-touch {
     top: 50%;
     transform: translateY(-50%);
     font-size: 102px;
-    font-weight: 700;
+    font-weight: 300;
     color: rgba(0, 0, 0, 0.04);
     letter-spacing: -0.04em;
     pointer-events: none;
     user-select: none;
     line-height: 1;
     font-family: var(--font-display);
-}
-
-.case-card-inner {
-    position: relative;
-    z-index: 1;
 }
 
 .case-meta {
@@ -1207,7 +1338,7 @@ body.no-touch {
     line-height: 1.65;
     font-weight: 300;
     max-width: 640px;
-    margin-bottom: 32px;
+    margin-bottom: 0;
 }
 
 .case-metrics {
@@ -1224,7 +1355,7 @@ body.no-touch {
 
 .metric-value {
     font-size: 27px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.02em;
     color: var(--text-primary);
     line-height: 1;
@@ -1238,10 +1369,79 @@ body.no-touch {
     font-weight: 500;
 }
 
+/* Case card image */
+.case-card-image {
+    margin: -28px -28px 24px -28px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    line-height: 0;
+    border-bottom: 1px solid var(--border);
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.case-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.case-card:hover .case-card-image img {
+    transform: scale(1.03);
+}
+
+/* Case card inner — grows to fill remaining height */
+.case-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Case card read CTA — pinned to bottom */
+.case-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-small);
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: auto;
+    padding-top: 20px;
+    transition: gap 150ms ease;
+    text-decoration: none;
+}
+
+.case-card:hover .case-card-cta {
+    gap: 10px;
+}
+
+/* Linked card */
+a.case-card {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .case-card {
         padding: 28px 24px;
-        border-radius: 16px;
+        border-radius: 8px;
+    }
+
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-card-image {
+        margin: -28px -28px 24px -28px;
+        border-radius: 8px 8px 0 0;
+        height: 180px;
     }
 
     .case-card-bg-text {
@@ -1280,7 +1480,7 @@ body.no-touch {
         rgba(255, 255, 255, 0.18),
         transparent 60%
     );
-    border-radius: 20px;
+    border-radius: 8px;
 }
 
 .product-card:hover .card-spotlight {
@@ -1297,26 +1497,33 @@ body.no-touch {
    ========================================================================== */
 .row-light .key:hover {
     filter: brightness(1.04);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow:
-        0 9px 0 #bebebe,
-        0 14px 30px rgba(0, 0, 0, 0.16);
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.07),
+        0 11px 0 #b2b2b2,
+        0 12px 1px rgba(0, 0, 0, 0.09),
+        0 24px 44px rgba(0, 0, 0, 0.22);
 }
 
 .row-dark .key:hover {
     filter: brightness(1.04);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow:
-        0 9px 0 #a6a6a6,
-        0 14px 32px rgba(0, 0, 0, 0.26);
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.1),
+        0 11px 0 #9c9c9c,
+        0 12px 1px rgba(0, 0, 0, 0.14),
+        0 24px 50px rgba(0, 0, 0, 0.36);
 }
 
 .key:active {
     transform: translateY(7px) !important;
     box-shadow:
-        0 0px 0 #aaaaaa,
-        0 2px 6px rgba(0, 0, 0, 0.12) !important;
-    filter: brightness(0.97) !important;
+        inset 0 2px 6px rgba(0, 0, 0, 0.14),
+        0 1px 0 #aaaaaa,
+        0 3px 8px rgba(0, 0, 0, 0.14) !important;
+    filter: brightness(0.96) !important;
 }
 
 .row-light .key::after,
@@ -1324,7 +1531,7 @@ body.no-touch {
     content: '';
     position: absolute;
     inset: -2px;
-    border-radius: 18px;
+    border-radius: 10px;
     opacity: 0;
     transition: opacity 0.2s ease;
     pointer-events: none;

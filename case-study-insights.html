@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Shift Insights | Nitish Upadhyay</title>
+    <meta name="description" content="Building an analytics and AI insights platform that turned raw support data into decisions — adopted by 50+ teams and used in weekly leadership reviews.">
+    <link rel="stylesheet" href="case-study.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="index.html" class="cs-back">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                Back to Portfolio
+            </a>
+            <span class="cs-nav-label">Case Study</span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="cs-hero">
+        <div class="cs-hero-inner">
+            <div class="cs-eyebrow">
+                <span class="cs-eyebrow-tag">Analytics & AI Insights</span>
+                <span class="cs-eyebrow-dot"></span>
+                <span class="cs-eyebrow-company">Thena · Sep 2024 – Present</span>
+            </div>
+            <h1 class="cs-title">How I shift insights.</h1>
+            <p class="cs-subtitle">Building a native analytics and AI insights platform that turned raw support ticket data into decisions — adopted by 50+ customer-facing teams and used in weekly leadership business reviews.</p>
+            <div class="cs-metrics-strip">
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">50+</div>
+                    <div class="cs-metric-label">Teams using platform</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">8.8/10</div>
+                    <div class="cs-metric-label">CSAT post-launch</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">Weekly</div>
+                    <div class="cs-metric-label">Leadership review cadence</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">0→1</div>
+                    <div class="cs-metric-label">Product built from scratch</div>
+                </div>
+            </div>
+            <div class="cs-hero-image">
+                <img src="assets/Insights.png" alt="Thena Insights dashboard showing ticket volume trends, SLA metrics, and CSAT data">
+            </div>
+        </div>
+    </header>
+
+    <!-- Body -->
+    <main class="cs-body">
+
+        <!-- Context -->
+        <section class="cs-section">
+            <span class="cs-section-label">Context</span>
+            <div class="cs-two-col-wide">
+                <div>
+                    <h2 class="cs-section-title">Data existed. Decisions didn't.</h2>
+                    <p class="cs-body-text">Thena's customers — B2B SaaS companies running customer support through Slack — were generating thousands of support signals every week. But there was no way to see them. Teams managed by feel: anecdote, intuition, whoever shouted loudest in the weekly standup.</p>
+                    <p class="cs-body-text">Leadership teams had no visibility into ticket trends, SLA performance, or account health. Support managers couldn't answer basic questions like "which account is most at risk this quarter?" without a manual Slack export and a spreadsheet.</p>
+                    <div class="cs-callout">
+                        <p>"Our customers were sitting on a goldmine of support signal. They just had no way to read it. We needed to build the instrument."</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">The problem in numbers</h3>
+                    <ul class="cs-list">
+                        <li>200+ B2B SaaS companies processing support through Thena</li>
+                        <li>Zero native analytics — teams used Slack exports and spreadsheets</li>
+                        <li>No SLA monitoring, no trend detection, no account-level health view</li>
+                        <li>Customer success teams flying blind on account risk signals</li>
+                        <li>No voice-of-customer data to feed into product roadmaps</li>
+                        <li>Leadership reviews relied on manually compiled weekly decks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discovery -->
+        <section class="cs-section">
+            <span class="cs-section-label">Discovery</span>
+            <h2 class="cs-section-title">What 20+ customer interviews revealed.</h2>
+            <p class="cs-body-text" style="margin-bottom: 48px;">Before writing a single requirement, I ran structured discovery with 20+ customers — support managers, heads of CX, and VP-level stakeholders. Three themes surfaced repeatedly.</p>
+
+            <ol class="cs-steps">
+                <li class="cs-step">
+                    <span class="cs-step-num">01</span>
+                    <div class="cs-step-content">
+                        <h4>SLA visibility was the top-requested feature</h4>
+                        <p>Every team had SLAs — first response time, resolution time. None could monitor them in real time. Breaches were discovered reactively, after the customer had already escalated. The ask was: alert me before it happens, not after.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">02</span>
+                    <div class="cs-step-content">
+                        <h4>Account-level aggregation mattered more than ticket-level detail</h4>
+                        <p>Teams did not want to look at individual tickets — they wanted to understand account health. Which accounts had the most open requests? Which had the worst CSAT? Which were trending up or down over time? The unit of analysis was the account, not the ticket.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">03</span>
+                    <div class="cs-step-content">
+                        <h4>Leadership needed a weekly brief, not a dashboard</h4>
+                        <p>Executives did not want to log in and explore — they wanted a consistent set of metrics they could review in 10 minutes every Monday. The insight platform needed to support both exploratory analysis and repeatable reporting.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- What we built -->
+        <section class="cs-section">
+            <span class="cs-section-label">Solution</span>
+            <h2 class="cs-section-title">What we built — and why each piece mattered.</h2>
+
+            <div class="cs-cards" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 40px;">
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="3"/></svg>
+                    <h4>Request volume analytics</h4>
+                    <p>Track total, open, tracked, and discarded requests with period-over-period trend comparisons. Visualise volume over time, broken down by account, assignee, or custom field. Built with flexible date range filtering — any 7/30/90/custom window.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <h4>SLA monitoring</h4>
+                    <p>Real-time tracking of first response and resolution SLA adherence with configurable thresholds per account tier. Breach alerts surfaced proactively — not reactively. p50/p90 time percentile breakdown for nuanced performance reading.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <h4>CSAT tracking</h4>
+                    <p>Aggregate CSAT scores across any date range with account-level and assignee-level breakdowns. Trend lines identify whether customer satisfaction is improving or degrading. Correlate CSAT dips with volume spikes and SLA breaches.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    <h4>AI insights layer</h4>
+                    <p>Sentiment scoring and trend detection on top of raw ticket data. Stacked bar charts breaking volume by sentiment (positive / neutral / negative). Voice-of-customer themes surfaced automatically — the topics driving the most frustrated requests, week over week.</p>
+                </div>
+            </div>
+
+            <p class="cs-body-text">Every feature was scoped against a customer job-to-be-done. Nothing went in because it looked good on a dashboard demo. The question throughout design was always: what decision does this number enable?</p>
+        </section>
+
+        <!-- How AI fits -->
+        <section class="cs-section">
+            <span class="cs-section-label">AI layer</span>
+            <div class="cs-two-col">
+                <div>
+                    <h2 class="cs-section-title">How AI turns data into direction.</h2>
+                    <p class="cs-body-text">Volume charts tell you what happened. AI tells you why — and what to do next. The AI insights layer sits on top of the core analytics and extracts signal that would otherwise require an analyst to surface manually.</p>
+                    <p class="cs-body-text">Sentiment priority was one of the first AI features shipped: every inbound request is scored and the results flow into the analytics view. Teams can now filter by sentiment — seeing which accounts are generating the most frustrated traffic, and when the frustration spiked.</p>
+                    <p class="cs-body-text">The longer-term vision is auto-generated weekly briefs: a concise AI-written summary of what changed this week, which accounts need attention, and what product issues are driving the most noise. Reducing the gap between data and decision to near-zero.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">AI capabilities in the platform</h3>
+                    <ul class="cs-list">
+                        <li>Sentiment classification on all inbound requests (positive / neutral / negative)</li>
+                        <li>Sentiment-based volume filtering and stacked bar visualisation</li>
+                        <li>Correlation of sentiment signals with SLA breaches and CSAT dips</li>
+                        <li>Topic clustering to surface voice-of-customer themes</li>
+                        <li>Urgency scoring: combined sentiment + SLA status for request prioritisation</li>
+                        <li>AI-assisted anomaly detection on volume and CSAT trend lines</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes -->
+        <section class="cs-section">
+            <span class="cs-section-label">Outcomes</span>
+            <h2 class="cs-section-title">What shipped, and what it delivered.</h2>
+
+            <div class="cs-outcomes">
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">50+</div>
+                    <div class="cs-outcome-title">Customer-facing teams adopted the platform</div>
+                    <p class="cs-outcome-desc">Within the first quarter post-launch, 50+ teams across Thena's customer base had integrated the insights platform into their support workflows — without a single forced onboarding session.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">Weekly</div>
+                    <div class="cs-outcome-title">Used in leadership business reviews</div>
+                    <p class="cs-outcome-desc">The platform became the system of record for leadership reporting. Decks that previously required hours of manual compilation are now generated directly from the Insights dashboard.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">6 pts</div>
+                    <div class="cs-outcome-title">CSAT improvement post-launch</div>
+                    <p class="cs-outcome-desc">Customers using Thena's AI copilot and insights together saw CSAT improve from baseline to 8.8/10 — a 6-point gain attributed to faster, more informed response decisions.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">Real-time</div>
+                    <div class="cs-outcome-title">SLA breach visibility</div>
+                    <p class="cs-outcome-desc">Teams moved from reactive breach discovery (after the customer complained) to proactive monitoring — SLA alerts fire before breaches happen, reducing escalations significantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learnings -->
+        <section class="cs-section">
+            <span class="cs-section-label">Reflection</span>
+            <h2 class="cs-section-title">What I'd do differently.</h2>
+            <div class="cs-two-col">
+                <div>
+                    <p class="cs-body-text">The biggest mistake early on was building the analytics infrastructure before validating the exact views customers would actually use. We over-engineered flexibility — too many filter combinations, too many views — before we understood which 20% of the product would drive 80% of the value.</p>
+                    <p class="cs-body-text">A tighter v1 scope — focused purely on SLA monitoring and volume trends — would have shipped faster and learned more. We course-corrected, but it cost us a sprint and a half.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">Key learnings</h3>
+                    <ul class="cs-list">
+                        <li>Analytics products need a clear primary job-to-be-done — "see everything" is not a job</li>
+                        <li>Default views matter more than custom views — most users never open the filter panel</li>
+                        <li>AI features need human-readable explanations attached — numbers without context create anxiety, not confidence</li>
+                        <li>Adoption is not the same as usage — track depth of engagement, not just logins</li>
+                        <li>Leadership and operator personas have fundamentally different needs — build for both explicitly</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="cs-footer">
+        <div class="cs-footer-inner">
+            <div class="cs-footer-left">
+                <p>Next case study</p>
+                <a href="case-study-crm.html">How I built a lightweight CRM →</a>
+            </div>
+            <nav class="cs-footer-nav">
+                <a href="index.html">Portfolio</a>
+                <a href="mailto:nixon.nitish@gmail.com">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        const bar = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+            bar.style.width = Math.min(pct, 100) + '%';
+        }, { passive: true });
+    </script>
+</body>
+</html>

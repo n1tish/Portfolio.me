@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Built a Lightweight CRM | Nitish Upadhyay</title>
+    <meta name="description" content="Building an enterprise accounts CRM that became the system of record for 1,000+ support agents and improved agent productivity by 20%.">
+    <link rel="stylesheet" href="case-study.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="index.html" class="cs-back">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                Back to Portfolio
+            </a>
+            <span class="cs-nav-label">Case Study</span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="cs-hero">
+        <div class="cs-hero-inner">
+            <div class="cs-eyebrow">
+                <span class="cs-eyebrow-tag">Enterprise CRM</span>
+                <span class="cs-eyebrow-dot"></span>
+                <span class="cs-eyebrow-company">Thena · Sep 2024 – Present</span>
+            </div>
+            <h1 class="cs-title">How I built a lightweight CRM.</h1>
+            <p class="cs-subtitle">Designing and shipping an enterprise accounts CRM to unify customer data across tickets, health metrics, and usage signals — becoming the system of record for 1,000+ support agents.</p>
+            <div class="cs-metrics-strip">
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">1,000+</div>
+                    <div class="cs-metric-label">Support agents using it</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">20%</div>
+                    <div class="cs-metric-label">Agent productivity gain</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">2</div>
+                    <div class="cs-metric-label">CRM integrations (SF + HubSpot)</div>
+                </div>
+                <div class="cs-metric-item">
+                    <div class="cs-metric-value">0→1</div>
+                    <div class="cs-metric-label">Built from scratch</div>
+                </div>
+            </div>
+            <div class="cs-hero-image">
+                <img src="assets/Lightweight CRM.png" alt="Thena Accounts CRM showing filterable customer account table with CRM data enrichment">
+            </div>
+        </div>
+    </header>
+
+    <!-- Body -->
+    <main class="cs-body">
+
+        <!-- The Problem -->
+        <section class="cs-section">
+            <span class="cs-section-label">The problem</span>
+            <div class="cs-two-col-wide">
+                <div>
+                    <h2 class="cs-section-title">Every support agent carried the customer context in their head.</h2>
+                    <p class="cs-body-text">Thena's customers — B2B SaaS companies with dedicated support teams — were handling hundreds of customer accounts across Slack channels. When an agent picked up a new request, they had no unified view of who this account was: their tier, their open tickets, their health score, their recent interactions.</p>
+                    <p class="cs-body-text">Context was scattered across Salesforce, HubSpot, internal spreadsheets, and Slack history. Agents spent the first 5–10 minutes of every interaction just assembling context — context that should have been waiting for them.</p>
+                    <div class="cs-callout">
+                        <p>"We watched agents open four different tabs before typing a single word to a customer. That's the problem we were solving."</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">The fragmentation problem</h3>
+                    <ul class="cs-list">
+                        <li>Account context split across Salesforce, HubSpot, and Slack history</li>
+                        <li>No unified view of ticket history per account</li>
+                        <li>Health metrics and usage data locked in spreadsheets</li>
+                        <li>No way to surface at-risk accounts before they escalated</li>
+                        <li>Agents duplicating context-gathering work on every new request</li>
+                        <li>Leadership lacked a single view of account portfolio health</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discovery -->
+        <section class="cs-section">
+            <span class="cs-section-label">Discovery</span>
+            <h2 class="cs-section-title">What we learned before writing a line of code.</h2>
+            <p class="cs-body-text" style="margin-bottom: 48px;">The first instinct was to build a full-featured CRM. Customer interviews corrected that. What agents actually needed was a focused, fast account view — not another heavyweight tool to learn.</p>
+
+            <ol class="cs-steps">
+                <li class="cs-step">
+                    <span class="cs-step-num">01</span>
+                    <div class="cs-step-content">
+                        <h4>Agents wanted context, not control</h4>
+                        <p>The primary use case was read — not write. Agents wanted to open an account and immediately see: tier, open tickets, recent CSAT, health status. They did not need to manage pipelines or log calls. The CRM analogy was accurate but misleading — this was closer to a customer intelligence panel.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">02</span>
+                    <div class="cs-step-content">
+                        <h4>Custom fields were non-negotiable</h4>
+                        <p>Every customer had a different set of attributes they tracked — contract tier, ARR band, renewal date, assigned CSM, technical segment. A fixed schema would not work. We needed extensible custom fields that could be enriched from CRM sources or set manually.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">03</span>
+                    <div class="cs-step-content">
+                        <h4>Table views were the workhorse</h4>
+                        <p>Leadership and CS managers did not want account profiles — they wanted a sortable, filterable table of all accounts. The ability to slice by health score, open ticket count, or SLA adherence and export or act on the result. The profile was a drill-down, not the entry point.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Architecture / What we built -->
+        <section class="cs-section">
+            <span class="cs-section-label">What we built</span>
+            <h2 class="cs-section-title">A CRM designed for support, not sales.</h2>
+
+            <div class="cs-cards" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 40px;">
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <h4>Unified account table</h4>
+                    <p>A searchable, sortable, filterable view of all customer accounts. Columns are configurable — teams show what they care about and hide what they don't. Supports bulk actions: update settings, assign accounts, trigger workflows across multiple accounts simultaneously.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    <h4>Account profiles</h4>
+                    <p>Each account has a 360° profile: CRM-enriched fields, custom attributes, associated contacts, open and historical tickets, health score, CSAT trend, and usage signals. All visible in one scroll — no tab-switching required.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    <h4>CRM data enrichment</h4>
+                    <p>Native Salesforce and HubSpot integrations sync account fields bidirectionally. Custom Thena attributes sit alongside CRM data in a unified schema. Teams can add custom fields on top of synced data — extending the model without breaking the sync.</p>
+                </div>
+                <div class="cs-card">
+                    <svg class="cs-card-icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    <h4>Saved views</h4>
+                    <p>Users can save custom table views with column visibility, filter combinations, and account source segmentation. A head of support can have their "at-risk accounts" view; a CSM can have their assigned portfolio. Views persist across sessions and can be shared across the team.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical decisions -->
+        <section class="cs-section">
+            <span class="cs-section-label">Product decisions</span>
+            <div class="cs-two-col">
+                <div>
+                    <h2 class="cs-section-title">The hard calls that shaped the product.</h2>
+                    <p class="cs-body-text">CRMs have an uncanny ability to expand scope. The hard discipline throughout this project was saying no — and being explicit about what this product was not.</p>
+                    <p class="cs-body-text">We did not build pipeline management. We did not build call logging. We did not build email sequences. Every feature request that pointed toward "full CRM" was redirected: if you already have Salesforce for that, we should integrate — not duplicate. The value was in the support-specific layer on top of existing CRM data, not in replacing the CRM.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">Principles we held</h3>
+                    <ul class="cs-list">
+                        <li>Enrich, don't replace — integrate with Salesforce/HubSpot rather than recreating them</li>
+                        <li>Context at a glance — the default account view should answer the top 5 questions without scrolling</li>
+                        <li>Flexible, not fragile — custom fields without breaking the data model</li>
+                        <li>Performance first — table views with 1,000+ accounts must be fast on first load</li>
+                        <li>Progressive disclosure — surface the summary first, let agents drill into detail on demand</li>
+                        <li>Bulk actions for operators — CS managers work at the portfolio level, not the account level</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rollout -->
+        <section class="cs-section">
+            <span class="cs-section-label">Rollout</span>
+            <h2 class="cs-section-title">How we shipped it without disrupting 1,000+ agents.</h2>
+
+            <ol class="cs-steps">
+                <li class="cs-step">
+                    <span class="cs-step-num">01</span>
+                    <div class="cs-step-content">
+                        <h4>Alpha with 3 lighthouse accounts</h4>
+                        <p>Ran a closed alpha with three customers who had the most fragmented account data problems. Used their workflows to pressure-test the table view performance, CRM sync reliability, and custom field flexibility before any broader access.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">02</span>
+                    <div class="cs-step-content">
+                        <h4>Gradual rollout with feature flagging</h4>
+                        <p>Opened access in waves — starting with enterprise tier customers, then mid-market, then self-serve. Each wave had a feedback loop: a dedicated Slack channel per cohort with direct access to the PM (me). Issues were caught and fixed before they reached the full customer base.</p>
+                    </div>
+                </li>
+                <li class="cs-step">
+                    <span class="cs-step-num">03</span>
+                    <div class="cs-step-content">
+                        <h4>Measuring adoption vs. usage depth</h4>
+                        <p>We tracked more than DAU/MAU. We tracked: how many agents set up a saved view (depth), how many used bulk actions (power usage), how many clicked from an account profile into a linked ticket (cross-feature engagement). These behavioural signals told a richer story than login counts.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Outcomes -->
+        <section class="cs-section">
+            <span class="cs-section-label">Outcomes</span>
+            <h2 class="cs-section-title">What it delivered.</h2>
+
+            <div class="cs-outcomes">
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">1,000+</div>
+                    <div class="cs-outcome-title">Support agents — system of record</div>
+                    <p class="cs-outcome-desc">The Accounts CRM became the definitive place agents check before responding to any customer request. It replaced the four-tab shuffle with a single unified view.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">20%</div>
+                    <div class="cs-outcome-title">Agent productivity improvement</div>
+                    <p class="cs-outcome-desc">Time-to-first-response improved across the board as agents no longer needed to manually assemble context before engaging. Measured via pre/post AHT comparison on accounts using the CRM.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">2</div>
+                    <div class="cs-outcome-title">Enterprise CRM integrations live</div>
+                    <p class="cs-outcome-desc">Salesforce and HubSpot integrations in production, with reliable bidirectional field sync and zero reported data consistency issues in the first 90 days post-launch.</p>
+                </div>
+                <div class="cs-outcome-card">
+                    <div class="cs-outcome-value">Single</div>
+                    <div class="cs-outcome-title">Source of truth for account health</div>
+                    <p class="cs-outcome-desc">CS leadership now uses the Accounts view as the primary lens for quarterly business reviews — replacing manual deck compilation with a live, filterable portfolio view.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learnings -->
+        <section class="cs-section">
+            <span class="cs-section-label">Reflection</span>
+            <h2 class="cs-section-title">What this project taught me.</h2>
+            <div class="cs-two-col">
+                <div>
+                    <p class="cs-body-text">The hardest part of building a CRM is not the features — it is the discipline of not building features. Every stakeholder has a slightly different model of what a CRM should do, and the surface area of "customer management" is enormous.</p>
+                    <p class="cs-body-text">What anchored every decision was a single question: does this make an agent faster in their first 30 seconds on a request? If the answer was no, we deferred it.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: var(--font-small); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 20px; font-weight: 500;">Key learnings</h3>
+                    <ul class="cs-list">
+                        <li>CRM scope creep is real — define the primary persona and job-to-be-done before the first PRD line</li>
+                        <li>Integration reliability is a product feature — a CRM that syncs unreliably is worse than no CRM</li>
+                        <li>Custom fields need governance — unlimited flexibility creates a mess; provide structure with flexibility</li>
+                        <li>Table performance is non-negotiable — slow tables kill adoption faster than missing features</li>
+                        <li>The best onboarding is zero onboarding — the product should be learnable from the interface alone</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="cs-footer">
+        <div class="cs-footer-inner">
+            <div class="cs-footer-left">
+                <p>Next case study</p>
+                <a href="case-study-ai-features.html">How I built AI features →</a>
+            </div>
+            <nav class="cs-footer-nav">
+                <a href="index.html">Portfolio</a>
+                <a href="mailto:nixon.nitish@gmail.com">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        const bar = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+            bar.style.width = Math.min(pct, 100) + '%';
+        }, { passive: true });
+    </script>
+</body>
+</html>
