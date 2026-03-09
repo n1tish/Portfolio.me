@@ -81,9 +81,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 0px;
+    padding: 0 40px;
     height: 100%;
 }
 
@@ -377,11 +375,19 @@ a {
 }
 
 .bg-primary {
-    background-color: var(--bg);
+    background: linear-gradient(160deg, #eaeaea 0%, #d9d9d9 100%);
 }
 
 .bg-secondary {
-    background-color: var(--surface);
+    background: linear-gradient(160deg, #fafafa 0%, #eeeeef 100%);
+}
+
+[data-theme="dark"] .bg-primary {
+    background: linear-gradient(160deg, #181818 0%, #101010 100%);
+}
+
+[data-theme="dark"] .bg-secondary {
+    background: linear-gradient(160deg, #222222 0%, #191919 100%);
 }
 
 .section-container {

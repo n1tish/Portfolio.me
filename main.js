@@ -47,20 +47,26 @@ document.addEventListener('DOMContentLoaded', () => {
             .to(ctas, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
     }
 
-    const loaderTl = gsap.timeline();
-    loaderTl
-        .to('.loader-logo', { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' })
-        .to('#loader', {
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.inOut',
-            delay: 0.3,
-            onComplete: () => {
-                const loader = document.getElementById('loader');
-                if (loader) loader.style.display = 'none';
-                initHeroAnimation();
-            }
-        });
+    const loader = document.getElementById('loader');
+    if (sessionStorage.getItem('loaderShown')) {
+        if (loader) loader.style.display = 'none';
+        initHeroAnimation();
+    } else {
+        sessionStorage.setItem('loaderShown', '1');
+        const loaderTl = gsap.timeline();
+        loaderTl
+            .to('.loader-logo', { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' })
+            .to('#loader', {
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power2.inOut',
+                delay: 0.3,
+                onComplete: () => {
+                    if (loader) loader.style.display = 'none';
+                    initHeroAnimation();
+                }
+            });
+    }
 
     /* =========================================================
        Section 3: Scroll Progress Bar

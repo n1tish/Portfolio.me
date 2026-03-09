@@ -72,8 +72,6 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1080px;
-    margin: 0 auto;
     padding: 0 40px;
     height: 100%;
 }
@@ -280,6 +278,11 @@ a { text-decoration: none; color: inherit; }
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cs-hero-image:hover img {
+    transform: scale(1.03);
 }
 
 /* ==========================================================================
@@ -694,6 +697,55 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 400px) {
     .cs-title { font-size: 24px; }
+}
+
+/* ==========================================================================
+   Loader
+   ========================================================================== */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-logo {
+    opacity: 0;
+    transform: scale(0.9);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 32px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Custom Cursor
+   ========================================================================== */
+.cursor-dot,
+.cursor-ring {
+    display: none;
+}
+
+/* ==========================================================================
+   Text Reveal Utilities
+   ========================================================================== */
+.cs-title .line-outer,
+.cs-section-title .line-outer {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: inherit;
+    margin-bottom: 0.05em;
+}
+
+.cs-title .line-inner,
+.cs-section-title .line-inner {
+    display: block;
 }
 
 /* Reduced motion */
