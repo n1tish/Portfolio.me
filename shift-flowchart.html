@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Arc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --bg: #e3e3e3;
+            --surface: #f5f5f7;
+            --border: #d2d2d7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #aeaeb2;
+        }
+
+        [data-theme="dark"] {
+            --bg: #141414;
+            --surface: #1e1e1e;
+            --border: #2e2e2e;
+            --text-primary: #f0f0f0;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #5a5a5f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            background: transparent;
+            font-family: 'Readex Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            bottom: 12px;
+            width: 1px;
+            background: linear-gradient(to bottom,
+                var(--border),
+                var(--text-secondary) 15%,
+                var(--text-secondary) 85%,
+                var(--border));
+        }
+
+        .tl-item {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1.5px solid var(--text-secondary);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .tl-item.active::before {
+            background: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        .tl-period {
+            font-size: 10px;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .tl-role {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .tl-company {
+            font-size: 11px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .tl-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tl-badge {
+            font-size: 10px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 2px 7px;
+        }
+
+        .tl-item.active .tl-badge {
+            border-color: var(--text-secondary);
+        }
+
+        .tl-connector {
+            padding-left: 28px;
+            margin: 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tl-connector-line {
+            width: 24px;
+            height: 1px;
+            background: var(--border);
+            flex-shrink: 0;
+        }
+
+        .tl-connector-label {
+            font-size: 10px;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            font-style: italic;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timeline">
+
+        <div class="tl-item">
+            <div class="tl-period">Jul 2019 – Sep 2020</div>
+            <div class="tl-role">Systems Engineer</div>
+            <div class="tl-company">Tata Consultancy Services</div>
+            <div class="tl-badges">
+                <span class="tl-badge">40+ countries</span>
+                <span class="tl-badge">99.5% uptime</span>
+                <span class="tl-badge">Enterprise ops</span>
+            </div>
+        </div>
+
+        <div class="tl-connector">
+            <div class="tl-connector-line"></div>
+            <span class="tl-connector-label">Reliability as foundation</span>
+        </div>
+
+        <div class="tl-item">
+            <div class="tl-period">Sep 2020 – Jan 2022</div>
+            <div class="tl-role">Product Support Analyst</div>
+            <div class="tl-company">Trilogy · Crossover</div>
+            <div class="tl-badges">
+                <span class="tl-badge">1,000+ tickets</span>
+                <span class="tl-badge">6 products</span>
+                <span class="tl-badge">UX feedback</span>
+            </div>
+        </div>
+
+        <div class="tl-connector">
+            <div class="tl-connector-line"></div>
+            <span class="tl-connector-label">Systemic thinking</span>
+        </div>
+
+        <div class="tl-item">
+            <div class="tl-period">Jan 2022 – Sep 2024</div>
+            <div class="tl-role">Sr. Product Support Engineer</div>
+            <div class="tl-company">Zapier</div>
+            <div class="tl-badges">
+                <span class="tl-badge">700K+ users</span>
+                <span class="tl-badge">AI tooling</span>
+                <span class="tl-badge">Product influence</span>
+            </div>
+        </div>
+
+        <div class="tl-connector">
+            <div class="tl-connector-line"></div>
+            <span class="tl-connector-label">Technical depth</span>
+        </div>
+
+        <div class="tl-item active">
+            <div class="tl-period">Sep 2024 – Present</div>
+            <div class="tl-role">Senior Product Manager</div>
+            <div class="tl-company">Thena</div>
+            <div class="tl-badges">
+                <span class="tl-badge">0→1 AI</span>
+                <span class="tl-badge">515 commits</span>
+                <span class="tl-badge">Vibe coding</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Send height to parent so iframe can auto-resize
+        function sendHeight() {
+            window.parent.postMessage({ iframeHeight: document.documentElement.scrollHeight }, '*');
+        }
+        window.addEventListener('load', sendHeight);
+        window.addEventListener('resize', sendHeight);
+
+        // Sync theme when parent toggles it
+        window.addEventListener('storage', function (e) {
+            if (e.key === 'theme') {
+                if (e.newValue === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+                sendHeight();
+            }
+        });
+    </script>
+
+</body>
+</html>
